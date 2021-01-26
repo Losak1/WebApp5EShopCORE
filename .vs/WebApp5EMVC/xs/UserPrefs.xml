@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{4C4AC217-3664-4147-BD5B-E81AA987632E}|Default">
+  <MonoDevelop.Ide.ItemProperties.WebApp5EMVC PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="WebApp5EMVC/Helpers/DatabaseHelper.cs" Line="35" Column="43" />
+      <File FileName="WebApp5EMVC/Views/Home/Index.cshtml" Line="20" Column="10" />
+      <File FileName="WebApp5EMVC/Controllers/HomeController.cs" />
+      <File FileName="WebApp5EMVC/Views/Shared/_LayoutBasePage.cshtml" />
+      <File FileName="WebApp5EMVC/Startup.cs" />
+      <File FileName="WebApp5EMVC/appsettings.json" />
+      <File FileName="WebApp5EMVC/Models/Entity/BaseEntity.cs" />
+      <File FileName="WebApp5EMVC/Models/View/IndexView.cs" />
+      <File FileName="WebApp5EMVC/Views/Home/Detail.cshtml" />
+      <File FileName="WebApp5EMVC/Program.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WebApp5EMVC" expanded="True">
+            <Node name="WebApp5EMVC" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

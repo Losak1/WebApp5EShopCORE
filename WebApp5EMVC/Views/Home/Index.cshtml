@@ -1,0 +1,23 @@
+﻿@model WebApp5EMVC.Models.View.IndexView
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBasePage.cshtml";
+}
+
+<h2>Index</h2>
+<table>
+    @foreach (var p in Model.Prodotti)
+    {
+    <tr>
+        <td><a href="/home/detail/@p.Id">Dettagli</a></td>
+        <td>@p.Nome</td>
+        <td>@p.Descrizione</td>
+        <td>@p.Immagine</td>
+        <td>@p.Prezzo</td>
+        <td>@p.Quantita</td>
+        <td>@p.Creazione</td>
+        <td>@p.Modifica</td>
+    </tr>    
+    }
+</table>
+

@@ -1,0 +1,21 @@
+﻿@model WebApp5EMVC.Models.View.DetailView
+@{
+    Layout = "~/Views/Shared/_LayoutBasePage.cshtml";
+}
+
+@if (Model.Prodotto != null)
+{
+    <h2>@Model.Prodotto.Nome</h2>
+    <img src="@Model.Prodotto.Immagine"/>
+    <p>@Model.Prodotto.Descrizione</p>
+    <p>@Model.Prodotto.Prezzo</p>
+    <p>@Model.Prodotto.Quantita</p>
+    <p>@Model.Prodotto.Creazione</p>
+    <p>@Model.Prodotto.Modifica</p>
+}
+else
+{
+    <h2>@ViewBag.Title</h2>
+    <p>@Model.MessaggioErrore</p>
+}
+
