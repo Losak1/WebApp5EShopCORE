@@ -21,6 +21,9 @@ namespace WebApp5EMVC
             Configuration = configuration;
             var cs = Configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
             DatabaseHelper.InitConnectionString(cs);
+            var up = Configuration.GetValue<string>("Paths:UploadsPath");
+            var ipp = Configuration.GetValue<string>("Paths:ImgProdottoPath");
+            PathHelper.InitPaths(up, ipp);
         }
 
         public IConfiguration Configuration { get; }

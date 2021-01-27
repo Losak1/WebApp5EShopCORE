@@ -6,7 +6,7 @@
 @if (Model.Prodotto != null)
 {
     <h2>@Model.Prodotto.Nome</h2>
-    <img src="@Model.Prodotto.Immagine"/>
+    <img src="@WebApp5EMVC.Helpers.PathHelper.GetProdottoImagePath(Model.Prodotto)" style=" height:150px; width:150px"/>
     <p>@Model.Prodotto.Descrizione</p>
     <p>@Model.Prodotto.Prezzo</p>
     <p>@Model.Prodotto.Quantita</p>

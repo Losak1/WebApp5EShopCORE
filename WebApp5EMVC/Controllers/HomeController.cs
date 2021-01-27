@@ -27,7 +27,7 @@ namespace WebApp5EMVC.Controllers
         public ActionResult Detail(int id)
         {
             Prodotto prodotto = DatabaseHelper.GetProdottoByID(id);
-            prodotto.Immagine = $"/Uploads/Prodotti/Imgs/{prodotto.Id}/{prodotto.Immagine}";
+            //prodotto.Immagine = $"/Uploads/Prodotti/Imgs/{prodotto.Id}/{prodotto.Immagine}";
             var model = new DetailView
             {
                 Prodotto = prodotto
