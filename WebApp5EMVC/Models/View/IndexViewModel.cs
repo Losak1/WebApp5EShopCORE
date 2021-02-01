@@ -4,7 +4,7 @@ using WebApp5EMVC.Models.Entity;
 
 namespace WebApp5EMVC.Models.View
 {
-    public class IndexView
+    public class IndexViewModel
     {
         public List<Prodotto> Prodotti { get; set; }
     }

@@ -14,21 +14,23 @@ namespace WebApp5EMVC.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
             List<Prodotto> prodotti = DatabaseHelper.GetAllProdotti();
-            var model = new IndexView
+            var model = new IndexViewModel
             {
                 Prodotti=prodotti
             };
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Detail(int id)
         {
             Prodotto prodotto = DatabaseHelper.GetProdottoByID(id);
             //prodotto.Immagine = $"/Uploads/Prodotti/Imgs/{prodotto.Id}/{prodotto.Immagine}";
-            var model = new DetailView
+            var model = new DetailViewModel
             {
                 Prodotto = prodotto
             };

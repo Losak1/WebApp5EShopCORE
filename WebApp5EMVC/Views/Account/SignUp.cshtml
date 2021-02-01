@@ -1,0 +1,15 @@
+﻿@model WebApp5EMVC.Models.View.SignUpViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutBasePage.cshtml";
+}
+
+<h2>Registrazione</h2>
+
+@using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+{
+    <label>Email</label>@Html.TextBoxFor(t => t.Email, new { type = "email"})<br />
+    <label>Password</label>@Html.TextBoxFor(t => t.Password, new { })<br />
+    <label>Conferma Password</label>@Html.TextBoxFor(t => t.ConfermaPassword, new { })<br />
+    <label>Nome</label>@Html.TextBoxFor(t => t.Nome, new { })<br />
+}
