@@ -32,7 +32,8 @@ namespace WebApp5EMVC.Controllers
             //prodotto.Immagine = $"/Uploads/Prodotti/Imgs/{prodotto.Id}/{prodotto.Immagine}";
             var model = new DetailViewModel
             {
-                Prodotto = prodotto
+                Prodotto = prodotto,
+                QuantitaLabel = "Quantità"
             };
             if (prodotto == null)
             {

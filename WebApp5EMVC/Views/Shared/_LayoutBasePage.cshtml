@@ -3,12 +3,52 @@
 <head>
     <title>@ViewBag.Title</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-    <div>Header</div><br />
-    <div><a href="/">Home</a></div>
-    <div><a href="/Account/SignUp">Sign Up</a></div>
-    <div>@RenderBody()</div>
-    <div>Footer</div>
+    <div class="container">
+        <Header>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="/Contents/Images/python-logo.png" width="100px" />
+                </div>
+                <div class="col-md-9">
+                    <h1>WebApp 5E</h1>
+                </div>
+            </div>
+        </Header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light m-3">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Account/SignUp">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div>@RenderBody()</div>
+        <Footer class="fixed-bottom">
+            <div class="row">
+                <div class="md-12">Footer</div>
+            </div>
+        </Footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var url = window.location.href;
+            $('.nav-link').filter(function () {
+                return this.href == url;
+            }).addClass('active');
+        });
+    </script>
 </body>
 </html>

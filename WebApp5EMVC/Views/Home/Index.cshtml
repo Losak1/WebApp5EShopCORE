@@ -2,22 +2,34 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutBasePage.cshtml";
+    var cardNumber = 0;
 }
 
-<h2>Index</h2>
+<h2>Home</h2>
 <table>
     @foreach (var p in Model.Prodotti)
     {
-    <tr>
-        <td><a href="@WebApp5EMVC.Helpers.PathHelper.GetProdottoUrl(p.Id)">Dettagli</a></td>
-        <td>@p.Nome</td>
-        <td>@p.Descrizione</td>
-        <td><img src="@WebApp5EMVC.Helpers.PathHelper.GetProdottoImagePath(p)" style=" height:50px; width:50px"></td>
-        <td>@p.Prezzo</td>
-        <td>@p.Quantita</td>
-        <td>@p.Creazione</td>
-        <td>@p.Modifica</td>
-    </tr>    
+        @if (cardNumber % 3 == 0)
+        {
+            if (cardNumber != 0)
+            {
+                @:</div>
+            }
+            @:<div class="card-deck m3">
+        }
+        <div class="card" style="width: 18rem;">
+            <img src="@WebApp5EMVC.Helpers.PathHelper.GetProdottoImagePath(p)" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@p.Nome</h5>
+                <p class="card-text">@p.Descrizione</p>
+                <h6 class="mb-3">
+                    <span class="mr-1">@p.Prezzo €</span>
+                </h6>
+                <a href="@WebApp5EMVC.Helpers.PathHelper.GetProdottoUrl(p.Id)" class="btn btn-primary">Dettagli</a>
+            </div>
+        </div>
+        cardNumber++;
     }
+    </div>
 </table>
 

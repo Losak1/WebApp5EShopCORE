@@ -16,14 +16,29 @@ namespace WebApp5EMVC.Controllers
         public IActionResult SignUp()
         {
             var model = new SignUpViewModel();
-            ViewBag.Title = model.Titolo = "Registrazione";
+            SetSignUpViewModelLabels(model);
             return View(model);
         }
 
         [HttpPost]
         public IActionResult SignUp(SignUpViewModel model)
         {
-            return View();
+            if(model.Password==null){   //Potenziare i controlli, spostare la logica in un altro punto
+                model.Errore = "Valorizzare tutti i campi!";
+            }
+             
+            SetSignUpViewModelLabels(model);
+            return View(model);
+        }
+
+        private void SetSignUpViewModelLabels(SignUpViewModel model)
+        {
+            ViewBag.Title = model.LabelTitolo = "Sign Up";
+            model.LabelBottone = "Registrati";
+            model.LabelEmail = "Email";
+            model.LabelPassword = "Password";
+            model.LabelConfermaPassword = "Conferma password";
+            model.LabelNome = "Nome";
         }
     }
 }

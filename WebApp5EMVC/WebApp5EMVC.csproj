@@ -16,6 +16,8 @@
     <Folder Include="Uploads\Prodotti\Imgs\2\" />
     <Folder Include="Uploads\Prodotti\Imgs\3\" />
     <Folder Include="Views\Account\" />
+    <Folder Include="Contents\" />
+    <Folder Include="Contents\Images\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.78" />

@@ -1,42 +1,31 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{4C4AC217-3664-4147-BD5B-E81AA987632E}|Default">
-  <MonoDevelop.Ide.ItemProperties.WebApp5EMVC PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.ItemProperties.WebApp5EMVC PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="WebApp5EMVC/Controllers/HomeController.cs" Line="28" Column="18" />
-      <File FileName="WebApp5EMVC/Views/Shared/_LayoutBasePage.cshtml" />
-      <File FileName="WebApp5EMVC/Startup.cs" />
-      <File FileName="WebApp5EMVC/appsettings.json" />
-      <File FileName="WebApp5EMVC/Models/Entity/BaseEntity.cs" />
-      <File FileName="WebApp5EMVC/Views/Home/Detail.cshtml" />
-      <File FileName="WebApp5EMVC/Program.cs" />
-      <File FileName="WebApp5EMVC/Helpers/PathHelper.cs" />
-      <File FileName="WebApp5EMVC/bin/Debug/netcoreapp3.1/appsettings.json" />
-      <File FileName="WebApp5EMVC/Controllers/AccountController.cs" />
+      <File FileName="WebApp5EMVC/Views/Shared/_LayoutBasePage.cshtml" Line="37" Column="42" />
       <File FileName="WebApp5EMVC/Views/Home/Index.cshtml" />
-      <File FileName="WebApp5EMVC/Views/Account/SignUp.cshtml" Line="14" Column="68" />
+      <File FileName="WebApp5EMVC/Helpers/PathHelper.cs" />
+      <File FileName="WebApp5EMVC/appsettings.json" />
+      <File FileName="WebApp5EMVC/Startup.cs" Line="63" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WebApp5EMVC" expanded="True">
             <Node name="WebApp5EMVC" expanded="True">
+              <Node name="Contents" expanded="True">
+                <Node name="Images" expanded="True" />
+              </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="Helpers" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="View" expanded="True" />
               </Node>
-              <Node name="Uploads" expanded="True">
-                <Node name="Prodotti" expanded="True">
-                  <Node name="Imgs" expanded="True" />
-                </Node>
-              </Node>
               <Node name="Views" expanded="True">
-                <Node name="Account" expanded="True">
-                  <Node name="SignUp.cshtml" selected="True" />
-                </Node>
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
               </Node>
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>

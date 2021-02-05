@@ -4,12 +4,40 @@
     Layout = "~/Views/Shared/_LayoutBasePage.cshtml";
 }
 
-<h2>Registrazione</h2>
+<h2>@Model.LabelTitolo</h2>
+<div class="mb-3">
+    @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+        <div class="mb-3">
+            <label for="inputEmail" class="form-label">@Model.LabelEmail</label>
+            @Html.TextBoxFor(t => t.Email, new { type = "email", placeholder = Model.LabelEmail, @class = "form-control", id = "inputEmail" })
+        </div>
+
+        <div class="mb-3">
+            <label for="inputPassword" class="form-label">@Model.LabelPassword</label>
+            @Html.PasswordFor(t => t.Password, new { placeholder = Model.LabelPassword, @class = "form-control", id = "inputPassword" })
+        </div>
+
+        <div class="mb-3">
+            <label for="inputConfirmPassword" class="form-label">@Model.LabelConfermaPassword</label>
+            @Html.PasswordFor(t => t.ConfermaPassword, new { placeholder = Model.LabelConfermaPassword, @class = "form-control", id = "inputConfirmPassword" })
+        </div>
+
+        <div class="mb-3">
+            <label for="inputName" class="form-label">@Model.LabelNome</label>
+            @Html.TextBoxFor(t => t.Nome, new { placeholder = Model.LabelNome, @class = "form-control", id = "inputName" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">@Model.LabelBottone</button>
+    }
+</div>
+
+
+@if (Model.Errore != null)
 {
-    <label>Email</label>@Html.TextBoxFor(t => t.Email, new { type = "email"})<br />
-    <label>Password</label>@Html.TextBoxFor(t => t.Password, new { })<br />
-    <label>Conferma Password</label>@Html.TextBoxFor(t => t.ConfermaPassword, new { })<br />
-    <label>Nome</label>@Html.TextBoxFor(t => t.Nome, new { })<br />
+    <div class="alert alert-danger" role="alert">
+        @Model.Errore
+    </div>
 }

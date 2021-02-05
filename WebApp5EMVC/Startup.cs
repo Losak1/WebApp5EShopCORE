@@ -56,6 +56,13 @@ namespace WebApp5EMVC
                 RequestPath = "/Uploads"
             });
 
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+            Path.Combine(env.ContentRootPath, "Contents")),
+                RequestPath = "/Contents"
+            });
+
             app.UseRouting();
 
             app.UseAuthorization();

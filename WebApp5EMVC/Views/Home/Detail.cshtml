@@ -5,13 +5,49 @@
 
 @if (Model.Prodotto != null)
 {
-    <h2>@Model.Prodotto.Nome</h2>
-    <img src="@WebApp5EMVC.Helpers.PathHelper.GetProdottoImagePath(Model.Prodotto)" style=" height:150px; width:150px"/>
-    <p>@Model.Prodotto.Descrizione</p>
-    <p>@Model.Prodotto.Prezzo</p>
-    <p>@Model.Prodotto.Quantita</p>
-    <p>@Model.Prodotto.Creazione</p>
-    <p>@Model.Prodotto.Modifica</p>
+    <section class="my-5">
+
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+
+                <div id="mdb-lightbox-ui"></div>
+
+                <div class="mdb-lightbox">
+
+                    <div class="row product-gallery mx-1">
+
+                        <div class="col-12 mb-0">
+                            <figure class="view overlay rounded z-depth-1 main-img">
+                                <img src="@WebApp5EMVC.Helpers.PathHelper.GetProdottoImagePath(Model.Prodotto)"
+                                        class="img-fluid z-depth-1">
+                            </figure>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-6">
+
+                <h4>@Model.Prodotto.Nome</h4>
+                <p><span class="mr-1"><strong>€@Model.Prodotto.Prezzo</strong></span></p>
+                <p class="pt-1">
+                    @Model.Prodotto.Descrizione
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-sm table-borderless mb-0">
+                        <tbody>
+                            <tr>
+                                <th class="pl-0 w-25" scope="row"><strong>@Model.QuantitaLabel</strong></th>
+                                <td>@Model.Prodotto.Quantita</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </section>
 }
 else
 {
