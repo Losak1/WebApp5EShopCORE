@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApp5EMVC.Helpers;
 using WebApp5EMVC.Models.View;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -23,11 +24,44 @@ namespace WebApp5EMVC.Controllers
         [HttpPost]
         public IActionResult SignUp(SignUpViewModel model)
         {
-            if(model.Password==null){   //Potenziare i controlli, spostare la logica in un altro punto
-                model.Errore = "Valorizzare tutti i campi!";
+            ModelState.Remove("Utente.password");
+            SetSignUpViewModelLabels(model);
+            model.Utente.Password = model.Password;
+            if (ModelState.IsValid)
+            {
+                //Commentato in quanto il controllo è gestito dalla data annotation
+                /*if (!model.Utente.IsPrivacy)
+                {
+                    model.Messaggio = "È necessario accettare la privacy";
+                    model.IsSuccesso = false;
+                    return View(model);
+                }*/
+                if (DatabaseHelper.ExistsEmail(model.Utente.Email))
+                {
+                    model.Messaggio = "Esiste già un account con questa email!";
+                    model.IsSuccesso = false;
+                    return View(model);
+                }
+                //TODO salvare su db e altri controlli
+                var res = DatabaseHelper.InsertUtente(model.Utente);
+                model.Messaggio = $"Iscrizione avvenuta con successo. Registrato con id {res}";
+                model.IsSuccesso = true;
+            } else
+            {
+                model.Messaggio = "Completa correttamente tutti i campi!";
+                model.IsSuccesso = false;
+                foreach(var value in ModelState.Values)
+                {
+                    foreach(var error in value.Errors)
+                    {
+                        model.Messaggio += "<br>" + error.ErrorMessage;
+                    }
+                }
+                
             }
              
-            SetSignUpViewModelLabels(model);
+            
+            
             return View(model);
         }
 
@@ -39,6 +73,7 @@ namespace WebApp5EMVC.Controllers
             model.LabelPassword = "Password";
             model.LabelConfermaPassword = "Conferma password";
             model.LabelNome = "Nome";
+            model.LabelPrivacy = "Accetto condizioni privacy";
         }
     }
 }

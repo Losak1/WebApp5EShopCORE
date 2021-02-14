@@ -6,38 +6,47 @@
 
 <h2>@Model.LabelTitolo</h2>
 <div class="mb-3">
-    @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+    @using (Html.BeginForm("SignUp", "Account", FormMethod.Post, new { id = "signUpForm" }))
     {
         @Html.AntiForgeryToken()
 
         <div class="mb-3">
             <label for="inputEmail" class="form-label">@Model.LabelEmail</label>
-            @Html.TextBoxFor(t => t.Email, new { type = "email", placeholder = Model.LabelEmail, @class = "form-control", id = "inputEmail" })
+            @Html.TextBoxFor(t => t.Utente.Email, new { type = "email", placeholder = Model.LabelEmail, @class = "form-control", id = "inputEmail", maxlength="255" })
         </div>
 
         <div class="mb-3">
             <label for="inputPassword" class="form-label">@Model.LabelPassword</label>
-            @Html.PasswordFor(t => t.Password, new { placeholder = Model.LabelPassword, @class = "form-control", id = "inputPassword" })
+            @Html.PasswordFor(t => t.Password, new { placeholder = Model.LabelPassword, @class = "form-control", id = "inputPassword", maxlength = "255" })
         </div>
 
         <div class="mb-3">
             <label for="inputConfirmPassword" class="form-label">@Model.LabelConfermaPassword</label>
-            @Html.PasswordFor(t => t.ConfermaPassword, new { placeholder = Model.LabelConfermaPassword, @class = "form-control", id = "inputConfirmPassword" })
+            @Html.PasswordFor(t => t.ConfermaPassword, new { placeholder = Model.LabelConfermaPassword, @class = "form-control", id = "inputConfirmPassword", maxlength = "255" })
         </div>
 
         <div class="mb-3">
             <label for="inputName" class="form-label">@Model.LabelNome</label>
-            @Html.TextBoxFor(t => t.Nome, new { placeholder = Model.LabelNome, @class = "form-control", id = "inputName" })
+            @Html.TextBoxFor(t => t.Utente.Nome, new { placeholder = Model.LabelNome, @class = "form-control", id = "inputName", maxlength = "255" })
         </div>
 
-        <button type="submit" class="btn btn-primary">@Model.LabelBottone</button>
+        <div class=" form-check mb-3">
+            @Html.CheckBoxFor(t => t.Utente.IsPrivacy, new { @class = "form-check-box", id="inputPrivacy" })
+            <label for="inputPrivacy" class="form-label">@Model.LabelPrivacy</label>
+        </div>
+
+        <button id="submitButton" type="submit" class="btn btn-primary">@Model.LabelBottone</button>
     }
 </div>
 
 
-@if (Model.Errore != null)
+@if (!string.IsNullOrWhiteSpace(Model.Messaggio))
 {
-    <div class="alert alert-danger" role="alert">
-        @Model.Errore
+    <div class="alert alert-@(Model.IsSuccesso? "success" : "danger") role="alert">
+            @Model.Messaggio
     </div>
+    
 }
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="/Contents/JS/SignUpValidation.js"></script>

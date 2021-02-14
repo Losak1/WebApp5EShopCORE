@@ -38,5 +38,32 @@ namespace WebApp5EMVC.Helpers
             }
             return prodotto;
         }
+
+        public static bool ExistsEmail (string email)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                var sql = "SELECT id FROM Utente WHERE email = @email";
+                var id = connection.Query<int>(sql, new { email }).FirstOrDefault();
+                return id > 0;
+            }
+        }
+
+        public static int InsertUtente(Utente utente)
+        {
+            var id = 0;
+            try
+            {
+                using(var connection = new MySqlConnection(_connectionString))
+                {
+                    var sql = "INSERT INTO utente (nome, email, password, isprivacy) VALUES (@nome, @email, @password, 1); SELECT CAST(LAST_INSERT_ID() AS int)";
+                    id = connection.Query<int>(sql, utente).First();
+                }
+            } catch(Exception gg)
+            {
+                //TODO loggare l'errore ex.Message
+            }
+            return id;
+        }
     }
 }
