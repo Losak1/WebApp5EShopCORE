@@ -3,11 +3,11 @@
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="WebApp5EMVC/Views/Shared/_LayoutBasePage.cshtml" Line="46" Column="36" />
-      <File FileName="WebApp5EMVC/Controllers/AccountController.cs" />
-      <File FileName="WebApp5EMVC/Helpers/DatabaseHelper.cs" />
+      <File FileName="WebApp5EMVC/Controllers/AccountController.cs" Line="46" Column="64" />
+      <File FileName="WebApp5EMVC/Helpers/DatabaseHelper.cs" Line="54" Column="2" />
       <File FileName="WebApp5EMVC/Models/View/SignUpViewModel.cs" />
-      <File FileName="WebApp5EMVC/Views/Account/SignUp.cshtml" />
-      <File FileName="WebApp5EMVC/Contents/JS/SignUpValidation.js" Line="29" Column="64" />
+      <File FileName="WebApp5EMVC/Views/Account/SignUp.cshtml" Line="1" Column="1" />
+      <File FileName="WebApp5EMVC/Models/Entity/Utente.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,9 +15,7 @@
           <Node name="WebApp5EMVC" expanded="True">
             <Node name="WebApp5EMVC" expanded="True">
               <Node name="Contents" expanded="True">
-                <Node name="JS" expanded="True">
-                  <Node name="SignUpValidation.js" selected="True" />
-                </Node>
+                <Node name="JS" expanded="True" />
               </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="Helpers" expanded="True" />
@@ -26,7 +24,9 @@
                 <Node name="View" expanded="True" />
               </Node>
               <Node name="Views" expanded="True">
-                <Node name="Account" expanded="True" />
+                <Node name="Account" expanded="True">
+                  <Node name="SignUp.cshtml" selected="True" />
+                </Node>
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
               </Node>
