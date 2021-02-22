@@ -2,21 +2,17 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutBasePage.cshtml";
-    var cardNumber = 0;
 }
 
 <h2>Home</h2>
 <table>
     @foreach (var p in Model.Prodotti)
     {
-        @if (cardNumber % 3 == 0)
+        @if (Model.Prodotti.IndexOf(p) % 3 == 0)
         {
-            if (cardNumber != 0)
-            {
-                @:</div>
-            }
             @:<div class="card-deck m3">
         }
+
         <div class="card" style="width: 18rem;">
             <img src="@WebApp5EMVC.Helpers.PathHelper.GetProdottoImagePath(p)" class="card-img-top" alt="...">
             <div class="card-body">
@@ -28,8 +24,11 @@
                 <a href="@WebApp5EMVC.Helpers.PathHelper.GetProdottoUrl(p.Id)" class="btn btn-primary">Dettagli</a>
             </div>
         </div>
-        cardNumber++;
+
+        @if (Model.Prodotti.IndexOf(p) % 3 == 2)
+        {
+            @:</div>
+        }
     }
-    </div>
 </table>
 

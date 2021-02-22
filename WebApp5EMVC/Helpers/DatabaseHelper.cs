@@ -65,5 +65,22 @@ namespace WebApp5EMVC.Helpers
             }
             return id;
         }
+
+        public static bool UpdatePassword(int id, string password)
+        {
+            try
+            {
+                using(var connection = new MySqlConnection(_connectionString))
+                {
+                    var sql = "UPDATE Utente SET password = @password WHERE id = @id";
+                    connection.Query(sql, new { id, password });
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

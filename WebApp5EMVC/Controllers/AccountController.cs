@@ -26,7 +26,6 @@ namespace WebApp5EMVC.Controllers
         {
             ModelState.Remove("Utente.password");
             SetSignUpViewModelLabels(model);
-            model.Utente.Password = model.Password;
             if (ModelState.IsValid)
             {
                 //Commentato in quanto il controllo è gestito dalla data annotation
@@ -43,8 +42,18 @@ namespace WebApp5EMVC.Controllers
                     return View(model);
                 }
                 //TODO salvare su db e altri controlli
-                var res = DatabaseHelper.InsertUtente(model.Utente);
-                model.Messaggio = $"Iscrizione avvenuta con successo. Registrato con id {res}";
+                model.Utente.Password = string.Empty;
+                var id = DatabaseHelper.InsertUtente(model.Utente);
+                if (id > 0)
+                {
+                    model.Utente.Password = CryptoHelper.HashSHA256(model.Password + id);
+                    var result = DatabaseHelper.UpdatePassword(id, model.Utente.Password);
+                    if (result)
+                    {
+                        //Inviare mail
+                    }
+                }
+                model.Messaggio = $"Iscrizione avvenuta con successo. Registrato con id {id}";
                 model.IsSuccesso = true;
             } else
             {
@@ -74,6 +83,14 @@ namespace WebApp5EMVC.Controllers
             model.LabelConfermaPassword = "Conferma password";
             model.LabelNome = "Nome";
             model.LabelPrivacy = "Accetto condizioni privacy";
+        }
+
+        [HttpGet]
+        public IActionResult LogIn()
+        {
+            var model = new LogInViewModel();
+            SetSignUpViewModelLabels(model);
+            return View(model);
         }
     }
 }
