@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApp5EMVC.Helpers;
+using WebApp5EMVC.Models.Entity;
 using WebApp5EMVC.Models.View;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -69,8 +70,6 @@ namespace WebApp5EMVC.Controllers
                 
             }
              
-            
-            
             return View(model);
         }
 
@@ -89,8 +88,47 @@ namespace WebApp5EMVC.Controllers
         public IActionResult LogIn()
         {
             var model = new LogInViewModel();
-            SetSignUpViewModelLabels(model);
+            SetLogInViewModelLabels(model);
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult LogIn(LogInViewModel model)
+        {
+            SetLogInViewModelLabels(model);
+            if (!ModelState.IsValid)
+            {
+                model.Messaggio = "Completa correttamente tutti i campi!";
+                model.IsSuccesso = false;
+                foreach (var value in ModelState.Values)
+                {
+                    foreach (var error in value.Errors)
+                    {
+                        model.Messaggio += "<br>" + error.ErrorMessage;
+                    }
+                }
+                return View(model);
+            }
+            
+            Utente utente = DatabaseHelper.GetUtenteByEmail(model.Email);
+            if (utente == null || CryptoHelper.HashSHA256(model.Password + utente.Id) != utente.Password)
+            {
+                model.Messaggio = "Email o password incoretti.";
+                model.IsSuccesso = false;
+                return View(model);
+            }
+
+            model.Messaggio = $"Accesso effettuato!.";
+            model.IsSuccesso = true;
+            return View(model); //redirect quando sarà pronta l'action
+        }
+
+        private void SetLogInViewModelLabels(LogInViewModel model)
+        {
+            ViewBag.Title = model.LabelTitolo = "Log In";
+            model.LabelBottone = "Accedi";
+            model.LabelEmail = "Email";
+            model.LabelPassword = "Password";
         }
     }
 }

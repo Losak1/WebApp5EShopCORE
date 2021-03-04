@@ -59,7 +59,7 @@ namespace WebApp5EMVC.Helpers
                     var sql = "INSERT INTO Utente (nome, email, password, isprivacy) VALUES (@nome, @email, @password, 1); SELECT LAST_INSERT_ID();";
                     id = connection.Query<int>(sql, utente).First();
                 }
-            } catch(Exception gg)
+            } catch(Exception ex)
             {
                 //TODO loggare l'errore ex.Message
             }
@@ -81,6 +81,17 @@ namespace WebApp5EMVC.Helpers
                 return false;
             }
             return true;
+        }
+
+        public static Utente GetUtenteByEmail(string email)
+        {
+            var utente = new Utente();
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                var sql = "SELECT * FROM Utente WHERE email = @email";
+                utente = connection.Query<Utente>(sql, new { email }).FirstOrDefault();
+            }
+            return utente;
         }
     }
 }

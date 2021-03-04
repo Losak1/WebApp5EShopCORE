@@ -1,0 +1,39 @@
+﻿@model WebApp5EMVC.Models.View.LogInViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutBasePage.cshtml";
+}
+
+<h2>@Model.LabelTitolo</h2>
+<div class="mb-3">
+    @using (Html.BeginForm("LogIn", "Account", FormMethod.Post, new { id = "signUpForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label for="inputEmail" class="form-label">@Model.LabelEmail</label>
+            @Html.TextBoxFor(t => t.Email, new { type = "email", placeholder = Model.LabelEmail, @class = "form-control", id = "inputEmail", maxlength = "255" })
+        </div>
+
+        <div class="mb-3">
+            <label for="inputPassword" class="form-label">@Model.LabelPassword</label>
+            @Html.PasswordFor(t => t.Password, new { placeholder = Model.LabelPassword, @class = "form-control", id = "inputPassword", maxlength = "255" })
+        </div>
+
+        
+
+        <button id="submitButton" type="submit" class="btn btn-primary">@Model.LabelBottone</button>
+    }
+</div>
+
+
+@if (!string.IsNullOrWhiteSpace(Model.Messaggio))
+{
+<div class="alert alert-@(Model.IsSuccesso? "success" : "danger") role="alert">
+    @Html.Raw(Model.Messaggio)
+</div>
+
+}
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="/Contents/JS/SignUpValidation.js"></script>
