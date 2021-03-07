@@ -11,9 +11,21 @@ namespace WebApp5EMVC.Controllers
     public class AreaRisrvataController : Controller
     {
         [HttpGet]
-        public IActionResult SignUp()
+        public ActionResult Index(IndexARViewModel model)
         {
-           return View();
+            SetIndexARViewModelLabels(model);
+
+            return View(model);
+        }
+
+        private void SetIndexARViewModelLabels(IndexARViewModel model)
+        {
+            ViewBag.Title = model.LabelTitolo = "Area riservata";
+            model.LabelBottone = "Aggiorna";
+            model.LabelEmail = "Email";
+            model.LabelPassword = "Password";
+            model.LabelConfermaPassword = "Conferma password";
+            model.LabelNome = "Nome";
         }
     }
 }

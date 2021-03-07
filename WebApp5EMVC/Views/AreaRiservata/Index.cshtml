@@ -1,4 +1,4 @@
-﻿@model WebApp5EMVC.Models.View.SignUpViewModel
+﻿@model WebApp5EMVC.Models.View.IndexARViewModel
 
 @{
     Layout = "~/Views/Shared/_LayoutBasePage.cshtml";
@@ -6,13 +6,13 @@
 
 <h2>@Model.LabelTitolo</h2>
 <div class="mb-3">
-    @using (Html.BeginForm("SignUp", "Account", FormMethod.Post, new { id = "signUpForm" }))
+    @using (Html.BeginForm("Index", "AreaRiservata", FormMethod.Post, new { id = "signUpForm" }))
     {
         @Html.AntiForgeryToken()
 
         <div class="mb-3">
             <label for="inputEmail" class="form-label">@Model.LabelEmail</label>
-            @Html.TextBoxFor(t => t.Utente.Email, new { type = "email", placeholder = Model.LabelEmail, @class = "form-control", id = "inputEmail", maxlength="255" })
+            @Html.TextBoxFor(t => t.Utente.Email, new { type = "email", placeholder = Model.LabelEmail, @class = "form-control", id = "inputEmail", maxlength = "255", @readonly="true" })
         </div>
 
         <div class="mb-3">
@@ -30,11 +30,6 @@
             @Html.TextBoxFor(t => t.Utente.Nome, new { placeholder = Model.LabelNome, @class = "form-control", id = "inputName", maxlength = "255" })
         </div>
 
-        <div class=" form-check mb-3">
-            @Html.CheckBoxFor(t => t.Utente.IsPrivacy, new { @class = "form-check-box", id="inputPrivacy" })
-            <label for="inputPrivacy" class="form-label">@Model.LabelPrivacy</label>
-        </div>
-
         <button id="submitButton" type="submit" class="btn btn-primary">@Model.LabelBottone</button>
     }
 </div>
@@ -43,10 +38,7 @@
 @if (!string.IsNullOrWhiteSpace(Model.Messaggio))
 {
     <div class="alert alert-@(Model.IsSuccesso? "success" : "danger") role="alert">
-            @Html.Raw(Model.Messaggio)
+        @Html.Raw(Model.Messaggio)
     </div>
-    
-}
 
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
-<script src="/Contents/JS/SignUpValidation.js"></script> 
+}

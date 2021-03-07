@@ -9,3 +9,4 @@ namespace WebApp5EMVC.Models.View
         public List<Prodotto> Prodotti { get; set; }
     }
 }
+ 

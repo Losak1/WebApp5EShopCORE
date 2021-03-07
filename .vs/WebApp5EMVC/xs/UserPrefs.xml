@@ -2,17 +2,13 @@
   <MonoDevelop.Ide.ItemProperties.WebApp5EMVC PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="WebApp5EMVC/Views/Shared/_LayoutBasePage.cshtml" Line="32" Column="75" />
-      <File FileName="WebApp5EMVC/Controllers/AccountController.cs" />
-      <File FileName="WebApp5EMVC/Helpers/DatabaseHelper.cs" />
-      <File FileName="WebApp5EMVC/Models/View/SignUpViewModel.cs" />
-      <File FileName="WebApp5EMVC/Views/Account/SignUp.cshtml" />
-      <File FileName="WebApp5EMVC/Models/Entity/Utente.cs" />
-      <File FileName="WebApp5EMVC/Views/Home/Index.cshtml" />
-      <File FileName="WebApp5EMVC/Helpers/CryptoHelper.cs" />
-      <File FileName="WebApp5EMVC/Models/View/LogInViewModel.cs" />
-      <File FileName="WebApp5EMVC/Views/Account/LogIn.cshtml" />
-      <File FileName="WebApp5EMVC/Controllers/AreaRisrvataController.cs" Line="16" Column="26" />
+      <File FileName="WebApp5EMVC/Controllers/AreaRisrvataController.cs" Line="17" Column="1" />
+      <File FileName="WebApp5EMVC/Controllers/HomeController.cs" Line="50" Column="3" />
+      <File FileName="WebApp5EMVC/Models/View/IndexARViewModel.cs" />
+      <File FileName="WebApp5EMVC/Views/AreaRiservata/Index.cshtml" Line="15" Column="184" />
+      <File FileName="WebApp5EMVC/Controllers/AccountController.cs" Line="17" Column="18" />
+      <File FileName="WebApp5EMVC/Helpers/SessionHelper.cs" />
+      <File FileName="WebApp5EMVC/Models/View/SignUpViewModel.cs" Line="27" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,16 +18,17 @@
               <Node name="Contents" expanded="True">
                 <Node name="JS" expanded="True" />
               </Node>
-              <Node name="Controllers" expanded="True">
-                <Node name="AreaRisrvataController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Helpers" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="Entity" expanded="True" />
-                <Node name="View" expanded="True" />
+                <Node name="View" expanded="True">
+                  <Node name="SignUpViewModel.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="Views" expanded="True">
                 <Node name="Account" expanded="True" />
+                <Node name="AreaRiservata" expanded="True" />
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
               </Node>

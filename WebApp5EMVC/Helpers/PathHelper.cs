@@ -24,4 +24,4 @@ namespace WebApp5EMVC.Helpers
             return $"/home/detail/{id}";
         }
     }
-}
+} 

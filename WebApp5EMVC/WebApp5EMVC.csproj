@@ -19,6 +19,7 @@
     <Folder Include="Contents\" />
     <Folder Include="Contents\Images\" />
     <Folder Include="Contents\JS\" />
+    <Folder Include="Views\AreaRiservata\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.78" />

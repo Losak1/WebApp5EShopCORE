@@ -17,5 +17,5 @@ namespace WebApp5EMVC.Models.Entity
 
         [Range( typeof(bool), "true", "true", ErrorMessage="È necessario accettare la privacy")]
         public bool IsPrivacy { get; set; }
-    }
+    } 
 }

@@ -10,3 +10,4 @@ namespace WebApp5EMVC.Models.View
         public string MessaggioErrore { get; set; }
     }
 }
+ 

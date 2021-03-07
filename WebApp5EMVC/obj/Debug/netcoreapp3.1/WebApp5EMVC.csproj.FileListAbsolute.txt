@@ -94,3 +94,4 @@
 /Users/losak/Projects/WebApp5EShopCORE/WebApp5EMVC/obj/Debug/netcoreapp3.1/WebApp5EMVC.genruntimeconfig.cache
 /Users/losak/Projects/WebApp5EShopCORE/WebApp5EMVC/obj/Debug/netcoreapp3.1/Razor/Views/Account/SignUp.cshtml.g.cs
 /Users/losak/Projects/WebApp5EShopCORE/WebApp5EMVC/obj/Debug/netcoreapp3.1/Razor/Views/Account/LogIn.cshtml.g.cs
+/Users/losak/Projects/WebApp5EShopCORE/WebApp5EMVC/obj/Debug/netcoreapp3.1/Razor/Views/AreaRiservata/Index.cshtml.g.cs

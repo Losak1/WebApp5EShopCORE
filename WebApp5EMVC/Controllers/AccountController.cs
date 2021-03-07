@@ -25,17 +25,11 @@ namespace WebApp5EMVC.Controllers
         [HttpPost]
         public IActionResult SignUp(SignUpViewModel model)
         {
-            ModelState.Remove("Utente.password");
             SetSignUpViewModelLabels(model);
+
+            ModelState.Remove("Utente.password");
             if (ModelState.IsValid)
             {
-                //Commentato in quanto il controllo è gestito dalla data annotation
-                /*if (!model.Utente.IsPrivacy)
-                {
-                    model.Messaggio = "È necessario accettare la privacy";
-                    model.IsSuccesso = false;
-                    return View(model);
-                }*/
                 if (DatabaseHelper.ExistsEmail(model.Utente.Email))
                 {
                     model.Messaggio = "Esiste già un account con questa email!";
@@ -69,7 +63,7 @@ namespace WebApp5EMVC.Controllers
                 }
                 
             }
-             
+
             return View(model);
         }
 
@@ -120,6 +114,9 @@ namespace WebApp5EMVC.Controllers
 
             model.Messaggio = $"Accesso effettuato!.";
             model.IsSuccesso = true;
+
+            HttpContext.Session.Set<Utente>("utente",utente);
+
             return View(model); //redirect quando sarà pronta l'action
         }
 

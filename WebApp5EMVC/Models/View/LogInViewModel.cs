@@ -19,3 +19,4 @@ namespace WebApp5EMVC.Models.View
         public string Messaggio { get; set; }
     }
 }
+ 
